@@ -1,0 +1,47 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: #3B82F6;
+  --color-secondary: #FBBF24;
+  --color-base-200: #F3F3F3;
+  --color-base-300: #E7E7E7;
+  --color-accent: #6366F1;
+  --background: #F9FAFB;
+  --text(main): #1F2937;
+  --text(light): #6B7280;
+  --button-hover: #2563EB → #1D4ED8;
+}
+
+a.active {
+  @apply bg-secondary;
+  @apply text-white;
+  @apply px-3;
+  @apply py-1;
+  @apply rounded-2xl;
+  @apply font-bold;
+}
+
+
+/* Typing effect */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: white; }
+}
+
+.typing-text {
+  overflow: hidden;       /* hide the overflowing text */
+  white-space: nowrap;    /* prevent wrapping */
+  border-right: 3px solid white; /* cursor */
+  width: 0;
+  animation: 
+    typing 2s steps(12, end) forwards, /* type letters */
+    blink-caret 0.75s step-end infinite; /* blinking cursor */
+}
