@@ -4,6 +4,8 @@ import Home from "../Page/Home";
 import Profile from "../Page/Profile";
 import Providers from "../Page/Providers";
 import SkillDetails from "../Page/SkillDetails";
+import Register from "../Page/Register";
+import Login from "../Page/Login";
 
 const router = createBrowserRouter([
     {
@@ -33,5 +35,17 @@ const router = createBrowserRouter([
         path: '/profile',
         element: <Profile></Profile>
     },
+    {
+        path: '/register',
+        element: <Register></Register>
+    },
+    {
+        path: '/login',
+        element: <Login></Login>
+    },
+    {
+        path: '*',
+        element: <h2>Error 404</h2>
+    }
 ])
 export default router;
