@@ -1,0 +1,82 @@
+[
+    {
+        "providerId": 1,
+        "providerName": "Alex Martin",
+        "profileImage": "https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=200&q=80",
+        "topSkills": [
+            "Guitar Lessons",
+            "Music Theory"
+        ],
+        "rating": 4.9
+    },
+    {
+        "providerId": 2,
+        "providerName": "Sara Hossain",
+        "profileImage": "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=200&q=80",
+        "topSkills": [
+            "English Speaking",
+            "Public Speaking"
+        ],
+        "rating": 4.8
+    },
+    {
+        "providerId": 3,
+        "providerName": "Maya Rahman",
+        "profileImage": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=200&q=80",
+        "topSkills": [
+            "Yoga",
+            "Meditation"
+        ],
+        "rating": 4.7
+    },
+    {
+        "providerId": 4,
+        "providerName": "John Doe",
+        "profileImage": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80",
+        "topSkills": [
+            "Photography",
+            "Photo Editing"
+        ],
+        "rating": 4.9
+    },
+    {
+        "providerId": 5,
+        "providerName": "Nina Patel",
+        "profileImage": "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=200&q=80",
+        "topSkills": [
+            "Web Development",
+            "JavaScript"
+        ],
+        "rating": 4.8
+    },
+    {
+        "providerId": 6,
+        "providerName": "David Lee",
+        "profileImage": "https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=crop&w=200&q=80",
+        "topSkills": [
+            "Public Speaking",
+            "Leadership"
+        ],
+        "rating": 4.7
+    },
+    {
+        "providerId": 7,
+        "providerName": "Sophia Zhang",
+        "profileImage": "https://images.unsplash.com/photo-1524503033411-c9566986fc8f?auto=format&fit=crop&w=200&q=80",
+        "topSkills": [
+            "Cooking",
+            "Baking"
+        ],
+        "rating": 4.9
+    },
+    {
+        "providerId": 8,
+        "providerName": "Liam Johnson",
+        "profileImage": "https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=200&q=80",
+        "topSkills": [
+            "Python Programming",
+            "Data Analysis"
+        ],
+        "rating": 4.8
+    }
+]

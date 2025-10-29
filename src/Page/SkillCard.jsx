@@ -3,7 +3,7 @@ import React from "react";
 
 const SkillCard = ({ skill }) => {
     return (
-        <div className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 flex flex-col" data-aos='zoom-in' data-aos-delay="200">
+        <div className="bg-white shadow-sm rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col" data-aos='zoom-in' data-aos-delay="200">
             {/* Image */}
             <img
                 src={skill.image}
