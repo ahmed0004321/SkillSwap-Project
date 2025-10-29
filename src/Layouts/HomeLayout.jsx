@@ -6,6 +6,8 @@ import Banner from '../Components/Banner';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+ 
+
 
 const HomeLayout = () => {
     useEffect(() => {

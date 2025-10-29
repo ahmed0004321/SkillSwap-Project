@@ -1,10 +1,13 @@
-// SkillDetails.jsx
+
 import React, { useEffect, useState } from "react";
 import { useLoaderData, useParams, Link } from "react-router";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import NavBar from "../Components/NavBar";
+import { toast } from "react-toastify";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const SkillDetails = () => {
@@ -45,19 +48,18 @@ const SkillDetails = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert("🎉 Booking Successful!");
+        toast("Booking Successful!",{
+            position: "top-center"
+        });
         setFormData({ name: "", email: "", date: "", note: "" });
         setShowForm(false);
     };
 
     return (
         <div className="min-h-screen flex flex-col bg-gray-50">
-            {/* ✅ Sticky Navbar */}
             <header className="sticky top-0 z-50 backdrop-blur-md shadow-sm">
                 <NavBar></NavBar>
             </header>
-
-            {/* ✅ Banner with skill image as background */}
             <section
                 className="relative w-full h-[400px] flex flex-col items-center justify-center text-center text-white overflow-hidden"
                 style={{
@@ -196,6 +198,7 @@ const SkillDetails = () => {
                     </div>
                 )}
             </main>
+            <ToastContainer/>
         </div>
     );
 };
