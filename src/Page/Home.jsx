@@ -4,7 +4,7 @@ import SkillCard from './SkillCard';
 
 const Home = () => {
     const skillData = useLoaderData();
-    console.log(skillData);
+    // console.log(skillData);
     return (
         <div>
             <h1 className='font-bold text-2xl my-3'>Popular Skills</h1>

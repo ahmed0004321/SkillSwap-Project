@@ -3,6 +3,7 @@ import HomeLayout from "../Layouts/HomeLayout";
 import Home from "../Page/Home";
 import Profile from "../Page/Profile";
 import Providers from "../Page/Providers";
+import SkillDetails from "../Page/SkillDetails";
 
 const router = createBrowserRouter([
     {
@@ -21,11 +22,16 @@ const router = createBrowserRouter([
                     }
                 ]
             },
-            {
-                path: '/profile',
-                element: <Profile></Profile>
-            },
         ]
-    }
+    },
+    {
+        path: '/skillDetails/:id',
+        element: <SkillDetails></SkillDetails>,
+        loader: () => fetch('/skill.JSON'),
+    },
+    {
+        path: '/profile',
+        element: <Profile></Profile>
+    },
 ])
 export default router;

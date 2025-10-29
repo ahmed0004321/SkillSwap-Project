@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ProviderDetails = ({ prov }) => {
-    console.log(prov);
+    // console.log(prov);
     return (
         <div className="mx-6 flex flex-col items-center text-center" data-aos='zoom-in' data-aos-delay="200">
             {/* Circular Image */}

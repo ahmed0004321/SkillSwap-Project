@@ -15,11 +15,11 @@ const NavBar = () => {
                     <NavLink className='font-bold hover:bg-secondary hover:text-white 
                 hover:scale-105 transition-all duration-300 px-3 py-1 rounded-2xl hover:shadow-lg' to='/profile'>Profile</NavLink>
                 </div>
-                 <div className='flex justify-center items-center gap-3'>
+                <div className='flex justify-center items-center gap-3'>
                     <img className='max-w-7 rounded-[50%]' src={userpng} alt="" />
                     <NavLink className='btn bg-primary text-white' to='/login'>Login</NavLink>
                     <NavLink className='btn bg-primary text-white' to='/login'>Register</NavLink>
-                 </div>
+                </div>
             </nav>
         </div>
     );

@@ -1,5 +1,7 @@
 // SkillCard.jsx
 import React from "react";
+import 'animate.css';
+import { NavLink } from "react-router";
 
 const SkillCard = ({ skill }) => {
     return (
@@ -14,7 +16,7 @@ const SkillCard = ({ skill }) => {
             {/* Card Content */}
             <div className="p-4 flex flex-col flex-grow">
                 {/* Skill Name */}
-                <h2 className="text-xl font-semibold mb-2">{skill.skillName}</h2>
+                <h2 className="animate__animated animate-pulse text-xl font-semibold mb-2">{skill.skillName}</h2>
 
                 {/* Rating and Price */}
                 <div className="flex items-center justify-between mb-4">
@@ -39,9 +41,9 @@ const SkillCard = ({ skill }) => {
                 </div>
 
                 {/* View Details Button */}
-                <button className="mt-auto bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">
+                <NavLink to={`/skillDetails/${skill.skillId}`} className="mt-auto bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">
                     View Details
-                </button>
+                </NavLink>
             </div>
         </div>
     );
