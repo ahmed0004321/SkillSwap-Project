@@ -63,7 +63,7 @@ const Register = () => {
 
                     <form onSubmit={handleRegister} className="flex flex-col gap-4">
                         <div>
-                            <label className="block text-gray-700 mb-1">Full Name</label>
+                            <label className="block text-gray-700 mb-1 text-start">Full Name</label>
                             <input
                                 name='name'
                                 type="text"
@@ -74,7 +74,7 @@ const Register = () => {
                         </div>
 
                         <div>
-                            <label className="block text-gray-700 mb-1">Photo URL</label>
+                            <label className="block text-gray-700 mb-1 text-start">Photo URL</label>
                             <input
                                 name='photo'
                                 type="text"
@@ -85,7 +85,7 @@ const Register = () => {
                         </div>
 
                         <div>
-                            <label className="block text-gray-700 mb-1">Email</label>
+                            <label className="block text-gray-700 mb-1 text-start">Email</label>
                             <input
                                 name='email'
                                 type="email"
@@ -96,7 +96,7 @@ const Register = () => {
                         </div>
 
                         <div>
-                            <label className="block text-gray-700 mb-1">Password</label>
+                            <label className="block text-gray-700 mb-1 text-start">Password</label>
                             <input
                                 name='password'
                                 type="password"

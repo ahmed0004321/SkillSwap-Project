@@ -2,9 +2,14 @@
 import { NavLink, Link } from 'react-router';
 import userpng from '../assets/user.png'
 import { AuthContext } from '../Provider/AuthProvider';
+import { use } from 'react';
 
 const NavBar = () => {
-     
+    const {user, setUser, logOut} = use(AuthContext);
+    const handleLogOut = () => {
+        logOut()
+        .then((result) => setUser(result.user));
+    }
     return (
         <div>
             <nav className='flex justify-between items-center backdrop-blur-2xl rounded-2xl p-5'>
@@ -19,8 +24,13 @@ const NavBar = () => {
                 </div>
                 <div className='flex justify-center items-center gap-3'>
                     <img className='max-w-7 rounded-[50%]' src={userpng} alt="" />
-                    <Link className='btn bg-primary text-white' to='/login'>Login</Link>
-                    <Link className='btn bg-primary text-white' to='/register'>Register</Link>
+                    {
+                        user ? <button className='btn text-white bg-primary' onClick={handleLogOut}>LogOut</button> : 
+                        <div className='flex flex-row gap-3'>
+                            <Link className='btn bg-primary text-white' to='/login'>Login</Link>
+                        <Link className='btn bg-primary text-white' to='/register'>Register</Link>
+                        </div>
+                    }
                 </div>
             </nav>
         </div>
