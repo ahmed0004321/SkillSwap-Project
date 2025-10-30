@@ -198,7 +198,7 @@ const SkillDetails = () => {
                     </div>
                 )}
             </main>
-            <ToastContainer/>
+            <ToastContainer/>   
         </div>
     );
 };

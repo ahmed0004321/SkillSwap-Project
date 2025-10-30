@@ -39,7 +39,9 @@ const Register = () => {
                 navigate('/')
             })
             .catch(error => {
-                return toast('Same User Found Register with different User Mail', error);
+                return toast('Same User Found Register with different User Mail' ,{
+            position: "top-center"
+        } ,error);
             })
     }
     const handleGoogleSignIn = () => {
