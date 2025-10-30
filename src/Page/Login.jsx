@@ -4,14 +4,15 @@ import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useRef } from 'react';
 
 const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
     // console.log(location);
+    const emailRef = useRef();
     const [success, setSuccess] = useState('');
-    const [passvali, setPassVali] = useState('')
-    const {signInUser, user, setUser, googleSignIn} = use(AuthContext);
+    const { signInUser, user, setUser, googleSignIn, resetPassword } = use(AuthContext);
     console.log(user);
     const handleLogin = (e) => {
         e.preventDefault();
@@ -19,43 +20,45 @@ const Login = () => {
         const password = e.target.password.value;
         console.log(email, password);
 
-        const upperCaseRegex = /[A-Z]/;
-        const lowerCaseRegex = /[a-z]/;
-        const minLength = 6;
-
-        if (!upperCaseRegex.test(password)) {
-            setPassVali('Password Must be Uppercase!!');
-            return;
-        } else if (!lowerCaseRegex.test(password)) {
-            setPassVali('Password Must be Loawercase!!');
-            return;
-        } else if (password.length < minLength) {
-            setPassVali('Password Must be More then 6 Charecter!!');
-            return;
-        }
-
 
         signInUser(email, password)
-        .then(result => {
-            setUser(result.user);
-            setSuccess('User Login Successfully!!');
-            navigate(`${location.state ? location.state : '/'}`);
-
-        })
-        .catch(error => {
-            toast('Login failed!!' + 'User not found', error);
-        })
+            .then(result => {
+                setUser(result.user);
+                setSuccess('User Login Successfully!!');
+                navigate(`${location.state ? location.state : '/'}`);
+            })
+            .catch(error => {
+                toast('Login failed!!' + 'User not found', error);
+            })
     }
 
     const handleGoogleSignIn = () => {
         googleSignIn()
-        .then((result) => {
-            setUser(result.user);
-            navigate(`${location.state ? location.state : '/'}`);
-        })
-        .catch(error => {
-            console.log('error found from google Sign In', error);
-        })
+            .then((result) => {
+                setUser(result.user);
+                navigate(`${location.state ? location.state : '/'}`);
+            })
+            .catch(error => {
+                console.log('error found from google Sign In', error);
+            })
+    }
+
+    const handleReset = (e) => {
+        e.preventDefault();
+        const email = emailRef.current.value;
+        resetPassword(email)
+            .then(() => {
+                toast('Check Your Email_ _?')
+            })
+            .catch((error) => {
+                if (error.code === 'auth/user-not-found') {
+                    toast.error('No account found with this email');
+                } else if (error.code === 'auth/invalid-email') {
+                    toast.error('Invalid email address');
+                } else {
+                    toast.error('Failed to send reset email. Please try again.');
+                }
+            });
     }
     return (
         <div>
@@ -69,7 +72,8 @@ const Login = () => {
                         <div>
                             <label className="block text-gray-700 mb-1 text-start">Email</label>
                             <input
-                            name='email'
+                                ref={emailRef}
+                                name='email'
                                 type="email"
                                 required
                                 placeholder="Enter your email"
@@ -80,7 +84,7 @@ const Login = () => {
                         <div>
                             <label className="block text-gray-700 mb-1 text-start">Password</label>
                             <input
-                            name='password'
+                                name='password'
                                 type="password"
                                 required
                                 placeholder="Enter your password"
@@ -88,8 +92,7 @@ const Login = () => {
                             />
                         </div>
                         <p className='text-green-400'>{success}</p>
-                        <p className='text-red-400'>{passvali}</p>
-                        <p className='text-start'>Forget Password?</p>
+                        <p onClick={handleReset} className='text-start cursor-pointer'>Forget Password?</p>
                         <button
                             type="submit"
                             className="bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition-colors"
