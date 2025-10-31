@@ -23,7 +23,7 @@ const NavBar = () => {
                 hover:scale-105 transition-all duration-300 px-3 py-1 rounded-2xl hover:shadow-lg' to='/profile'>Profile</NavLink>
                 </div>
                 <div className='flex justify-center items-center gap-3'>
-                    <img className='max-w-7 rounded-[50%]' src={userpng} alt="" />
+                    <img className='max-w-7 rounded-[50%]' src={user ? user.photoURL : userpng} alt="" />
                     {
                         user ? <button className='btn text-white bg-primary' onClick={handleLogOut}>LogOut</button> : 
                         <div className='flex flex-row gap-3'>
