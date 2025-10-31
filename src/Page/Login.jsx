@@ -5,12 +5,15 @@ import { AuthContext } from '../Provider/AuthProvider';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRef } from 'react';
+import { FaEye } from 'react-icons/fa';
+import { FiEyeOff } from 'react-icons/fi';
 
 const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
     // console.log(location);
     const emailRef = useRef();
+    const [show, setShow] = useState(false);
     const [success, setSuccess] = useState('');
     const { signInUser, user, setUser, googleSignIn, resetPassword } = use(AuthContext);
     console.log(user);
@@ -81,15 +84,16 @@ const Login = () => {
                             />
                         </div>
 
-                        <div>
+                        <div className='relative'>
                             <label className="block text-gray-700 mb-1 text-start">Password</label>
                             <input
                                 name='password'
-                                type="password"
+                                type={show ? 'text' : 'password'}
                                 required
                                 placeholder="Enter your password"
                                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                             />
+                            <span onClick={() => setShow(!show)} className='absolute right-4 top-10 text-lg'>{show ? <FaEye></FaEye> : <FiEyeOff></FiEyeOff>}</span>
                         </div>
                         <p className='text-green-400'>{success}</p>
                         <p onClick={handleReset} className='text-start cursor-pointer'>Forget Password?</p>

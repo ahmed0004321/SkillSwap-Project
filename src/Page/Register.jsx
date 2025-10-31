@@ -5,7 +5,10 @@ import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FaEye } from 'react-icons/fa';
+import { FiEyeOff } from 'react-icons/fi';
 const Register = () => {
+    const [show, setShow] = useState(false);
     const [passValidation, setPassValidation] = useState('');
     const navigate = useNavigate();
     const { createUser, user, setUser, googleSignIn } = use(AuthContext);
@@ -97,15 +100,16 @@ const Register = () => {
                             />
                         </div>
 
-                        <div>
+                        <div className='relative'>
                             <label className="block text-gray-700 mb-1 text-start">Password</label>
                             <input
                                 name='password'
-                                type="password"
+                                type={show ? 'text' : 'password'}
                                 required
                                 placeholder="Enter your password"
                                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                             />
+                            <span onClick={() => setShow(!show)} className='absolute right-4 top-10 text-lg'>{show ? <FaEye></FaEye> : <FiEyeOff></FiEyeOff>}</span>
                         </div>
                         <p className='text-red-500'>{passValidation}</p>
                         <button
