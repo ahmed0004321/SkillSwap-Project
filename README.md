@@ -8,7 +8,7 @@
 
 ## 🌐 Live URL
 
-**Live Site:** [Your Live URL Here - e.g., https://skillswap-project-d3aff.web.app/]
+**Live Site:** Your Live URL Here - e.g., https://skillswap-project-d3aff.web.app/
 
 ---
 
