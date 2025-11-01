@@ -6,7 +6,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import NavBar from "../Components/NavBar";
 import { toast } from "react-toastify";
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -198,7 +197,6 @@ const SkillDetails = () => {
                     </div>
                 )}
             </main>
-            <ToastContainer/>   
         </div>
     );
 };

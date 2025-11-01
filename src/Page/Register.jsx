@@ -67,7 +67,6 @@ const Register = () => {
             </div>
             <div className="flex items-center justify-center md:min-h-screen my-20 px-4">
                 <div className="bg-white rounded-lg shadow-md p-8 w-full max-w-sm">
-                    <h2 className='text-primary'>Please reload the home page after register</h2>
                     <h2 className="text-2xl font-bold text-center mb-6">Register</h2>
 
                     <form onSubmit={handleRegister} className="flex flex-col gap-4">

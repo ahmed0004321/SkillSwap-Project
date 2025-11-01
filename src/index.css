@@ -18,8 +18,6 @@
 a.active {
   @apply bg-secondary;
   @apply text-white;
-  @apply px-3;
-  @apply py-1;
   @apply rounded-2xl;
   @apply font-bold;
 }

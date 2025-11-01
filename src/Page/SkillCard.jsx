@@ -41,7 +41,7 @@ const SkillCard = ({ skill }) => {
                 </div>
 
                 {/* View Details Button */}
-                <NavLink to={`/skillDetails/${skill.skillId}`} className="mt-auto bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">
+                <NavLink to={`/skillDetails/${skill.skillId}`} className="mt-auto bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors text-center">
                     View Details
                 </NavLink>
             </div>

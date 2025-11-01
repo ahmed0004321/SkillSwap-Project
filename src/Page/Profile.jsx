@@ -24,7 +24,8 @@ const Profile = () => {
             });
 
             e.target.reset();
-            toast.success('Profile updated successfully!');
+            toast.success("Profile updated successfully!", {
+            toastId: "profileUpdateSuccess",});
         } catch (err) {
             console.error('Profile update error:', err);
             toast.error('Failed to update profile');
@@ -58,10 +59,10 @@ const Profile = () => {
                             }}
                         />
                         <p className="mt-3 text-blue-400 font-bold">
-                            {user ? user?.displayName : 'Login or register to see name'}
+                            Name: {user?.displayName}
                         </p>
                         <p className="mt-3 text-blue-400 font-bold">
-                            {user ? user?.email : 'Please reload to see email.'}
+                            Email: {user?.email}
                         </p>
                     </div>
 
@@ -105,7 +106,7 @@ const Profile = () => {
                     </form>
                 </div>
             </div>
-            <ToastContainer></ToastContainer>
+            {/* <ToastContainer></ToastContainer> */}
         </div>
     );
 };

@@ -3,6 +3,10 @@ import { NavLink, Link } from 'react-router';
 import userpng from '../assets/user.png'
 import { AuthContext } from '../Provider/AuthProvider';
 import { use } from 'react';
+import { toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const NavBar = () => {
     const { user, setUser, logOut } = use(AuthContext);
@@ -14,6 +18,7 @@ const NavBar = () => {
     const handleLogOut = () => {
         logOut()
             .then(() => setUser(null));
+            toast.success('Logout Successfully!')
     }
     return (
         <div>
@@ -48,6 +53,7 @@ const NavBar = () => {
                     }
                 </div>
             </nav>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };
