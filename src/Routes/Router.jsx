@@ -7,6 +7,8 @@ import SkillDetails from "../Page/SkillDetails";
 import Register from "../Page/Register";
 import Login from "../Page/Login";
 import PrivateRoutes from "../Components/PrivateRoutes";
+import ForgetPassword from "../Page/ForgetPassword";
+import Loading from "../Components/Loading";
 
 const router = createBrowserRouter([
     {
@@ -17,12 +19,14 @@ const router = createBrowserRouter([
                 path: '/',
                 element: <Home></Home>,
                 loader: () => fetch('/skill.JSON'),
+                hydrateFallbackElement: <Loading></Loading>,
                 children: [
                     {
                         path: '/',
                         element: <Providers></Providers>,
                         loader: () => fetch('/providers.JSON'),
-                    }
+                        hydrateFallbackElement: <Loading></Loading>,
+                    },
                 ]
             },
         ]
@@ -30,13 +34,15 @@ const router = createBrowserRouter([
     {
         path: '/skillDetails/:id',
         element: <PrivateRoutes>
-            <SkillDetails></SkillDetails>,
+            <SkillDetails></SkillDetails>
         </PrivateRoutes>,
         loader: () => fetch('/skill.JSON'),
+        hydrateFallbackElement: <Loading></Loading>,
     },
     {
         path: '/profile',
         element: <Profile></Profile>
+        
     },
     {
         path: '/register',
@@ -45,6 +51,10 @@ const router = createBrowserRouter([
     {
         path: '/login',
         element: <Login></Login>
+    },
+    {
+        path: '/forgetPassword',
+        element: <ForgetPassword></ForgetPassword>
     },
     {
         path: '*',

@@ -28,6 +28,7 @@ const ProviderDetails = ({ prov }) => {
                 {"⭐".repeat(Math.floor(prov.rating))}{" "}
                 <span className="text-gray-600">({prov.rating.toFixed(1)})</span>
             </p>
+
         </div>
     );
 };

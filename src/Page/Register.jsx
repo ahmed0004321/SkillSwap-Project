@@ -13,13 +13,12 @@ const Register = () => {
     const navigate = useNavigate();
     const { createUser, user, setUser, googleSignIn, updatedUser } = use(AuthContext);
     console.log(user);
-    const handleRegister = (e) => {
+    const handleRegister = async (e) => {
         e.preventDefault();
         const name = e.target.name.value;
         const photo = e.target.photo.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
-        // console.log(name, photoUrl, email, password);
 
         const upperCaseRegex = /[A-Z]/;
         const lowerCaseRegex = /[a-z]/;
@@ -36,24 +35,20 @@ const Register = () => {
             return;
         }
 
-        createUser(email, password)
-            .then(result => {
-                setUser(result.user);
-                updatedUser({ displayName: name, photoURL: photo })
-                    .then(() => {
-                        setUser({ ...user, displayName: name, photoURL: photo })
-                        navigate('/')
-                            .catch((err) => {
-                                alert('error', err);
-                                setUser(user)
-                            })
-                    })
-            })
-            .catch(error => {
-                return toast.error('User already exists! Please use a different email.', {
-                    position: "top-center"
-                });
-            })
+        try {
+            await createUser(email, password);
+            await updatedUser({ displayName: name, photoURL: photo });
+            setTimeout(() => {
+                toast.success('Register Successfully!')
+                navigate('/');
+            }, 500);
+
+        } catch (error) {
+            console.error(error);
+            return toast.error('User already exists! Please use a different email.', {
+                position: "top-center"
+            });
+        }
     }
     const handleGoogleSignIn = () => {
         googleSignIn()
@@ -67,11 +62,12 @@ const Register = () => {
     }
     return (
         <div>
-            <div>
+            <div className='fixed top-0 left-0 w-full z-50 backdrop-blur-2xl px-5 md:px-10 sm:px-7'>
                 <NavBar></NavBar>
             </div>
-            <div className="flex items-center justify-center min-h-screen px-4">
+            <div className="flex items-center justify-center md:min-h-screen my-20 px-4">
                 <div className="bg-white rounded-lg shadow-md p-8 w-full max-w-sm">
+                    <h2 className='text-primary'>Please reload the home page after register</h2>
                     <h2 className="text-2xl font-bold text-center mb-6">Register</h2>
 
                     <form onSubmit={handleRegister} className="flex flex-col gap-4">
@@ -135,6 +131,7 @@ const Register = () => {
                         </button>
 
                         <button
+                            type='button'
                             onClick={handleGoogleSignIn}
                             className="btn bg-white text-black border-[#e5e5e5]"
                         >

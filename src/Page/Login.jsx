@@ -28,6 +28,7 @@ const Login = () => {
             .then(result => {
                 setUser(result.user);
                 setSuccess('User Login Successfully!!');
+                e.target.reset()
                 navigate(`${location.state ? location.state : '/'}`);
             })
             .catch(error => {
@@ -45,30 +46,12 @@ const Login = () => {
                 console.log('error found from google Sign In', error);
             })
     }
-
-    const handleReset = (e) => {
-        e.preventDefault();
-        const email = emailRef.current.value;
-        resetPassword(email)
-            .then(() => {
-                toast('Check Your Email_ _?')
-            })
-            .catch((error) => {
-                if (error.code === 'auth/user-not-found') {
-                    toast.error('No account found with this email');
-                } else if (error.code === 'auth/invalid-email') {
-                    toast.error('Invalid email address');
-                } else {
-                    toast.error('Failed to send reset email. Please try again.');
-                }
-            });
-    }
     return (
         <div>
-            <div>
+            <div className='fixed top-0 left-0 w-full z-50 backdrop-blur-2xl px-5 md:px-10 sm:px-7'>
                 <NavBar></NavBar>
             </div>
-            <div className="flex items-center justify-center min-h-screen">
+            <div className="flex items-center justify-center md:min-h-screen my-20">
                 <div className="bg-white rounded-lg shadow-md p-8 w-full max-w-sm">
                     <h2 className="text-2xl font-bold text-center mb-6">Login</h2>
                     <form onSubmit={handleLogin} className="flex flex-col gap-4">
@@ -102,9 +85,9 @@ const Login = () => {
                         </div>
 
                         <p className="text-green-400">{success}</p>
-                        <p onClick={handleReset} className="text-start cursor-pointer">
+                        <Link to='/forgetPassword' className="text-start cursor-pointer">
                             Forget Password?
-                        </p>
+                        </Link>
 
                         <button
                             type="submit"
@@ -114,6 +97,7 @@ const Login = () => {
                         </button>
 
                         <button
+                        type='button'
                             onClick={handleGoogleSignIn}
                             className="btn bg-white text-black border-[#e5e5e5]"
                         >
