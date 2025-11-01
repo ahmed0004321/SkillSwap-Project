@@ -149,50 +149,6 @@ npm run build
 npm run deploy
 ```
 
----
-
-## 📂 Project Structure
-
-```
-skillswap/
-├── public/
-│   ├── skill.JSON
-│   └── providers.JSON
-├── src/
-│   ├── assets/
-│   ├── Components/
-│   │   ├── Banner.jsx
-│   │   ├── Footer.jsx
-│   │   ├── NavBar.jsx
-│   │   ├── PrivateRoutes.jsx
-│   │   └── Loading.jsx
-│   ├── Firebase/
-│   │   └── Firebase.config.js
-│   ├── Layouts/
-│   │   └── HomeLayout.jsx
-│   ├── Page/
-│   │   ├── Home.jsx
-│   │   ├── Login.jsx
-│   │   ├── Register.jsx
-│   │   ├── Profile.jsx
-│   │   ├── SkillDetails.jsx
-│   │   ├── SkillCard.jsx
-│   │   ├── Providers.jsx
-│   │   └── ProviderDetails.jsx
-│   ├── Provider/
-│   │   └── AuthProvider.jsx
-│   ├── Router/
-│   │   └── Router.jsx
-│   ├── App.jsx
-│   └── main.jsx
-├── .env
-├── .gitignore
-├── package.json
-└── README.md
-```
-
----
-
 ## 🔑 Key Functionalities
 
 ### Authentication Flow
